@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shashank Khochikar — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14201a;
+      --muted: #4a5a52;
+      --line: #d7e0d9;
+      --paper: #f7f4ee;
+      --panel: #1b3a2f;
+      --panel-soft: #244a3c;
+      --accent: #e8a54b;
+      --accent-soft: #f3d7a4;
+      --chip: #eef3ef;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    html, body {
+      width: 210mm;
+      height: 297mm;
+      background: #fff;
+      color: var(--ink);
+      font-family: "Sora", system-ui, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      display: grid;
+      grid-template-columns: 68mm 1fr;
+      overflow: hidden;
+      background:
+        radial-gradient(1200px 500px at -10% -10%, #fff8ea 0%, transparent 55%),
+        linear-gradient(180deg, #fbfaf7 0%, var(--paper) 100%);
+    }
+
+    .aside {
+      background:
+        linear-gradient(165deg, var(--panel) 0%, #12261f 100%);
+      color: #f4f7f5;
+      padding: 18mm 8mm 14mm 9mm;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aside::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -50px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,165,75,.28), transparent 70%);
+    }
+
+    .aside::after {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: -40px;
+      width: 140px;
+      height: 140px;
+      border: 1px solid rgba(243,215,164,.18);
+      border-radius: 50%;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 9mm;
+    }
+
+    .brand .role {
+      display: inline-block;
+      font-size: 8.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      font-weight: 600;
+      margin-bottom: 3mm;
+    }
+
+    .brand h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 26px;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand h1 span {
+      display: block;
+      color: var(--accent);
+    }
+
+    .brand p {
+      margin-top: 3.5mm;
+      font-size: 10px;
+      line-height: 1.45;
+      color: rgba(244,247,245,.78);
+    }
+
+    .block {
+      position: relative;
+      z-index: 1;
+      margin-top: 7mm;
+    }
+
+    .block h2 {
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 3mm;
+      font-weight: 700;
+    }
+
+    .contact li {
+      list-style: none;
+      font-size: 9.5px;
+      line-height: 1.35;
+      margin-bottom: 2.6mm;
+      color: rgba(244,247,245,.9);
+      word-break: break-word;
+    }
+
+    .contact strong {
+      display: block;
+      font-size: 8px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(243,215,164,.75);
+      margin-bottom: .6mm;
+      font-weight: 600;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6mm;
+    }
+
+    .skills span {
+      font-size: 8.5px;
+      padding: 1.4mm 2.2mm;
+      border: 1px solid rgba(243,215,164,.28);
+      border-radius: 999px;
+      color: #f7f4ee;
+      background: rgba(255,255,255,.04);
+    }
+
+    .edu-item + .edu-item { margin-top: 3.5mm; }
+
+    .edu-item h3 {
+      font-size: 10.5px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .edu-item p {
+      font-size: 9px;
+      color: rgba(244,247,245,.72);
+      margin-top: .8mm;
+      line-height: 1.35;
+    }
+
+    .meta-list {
+      font-size: 9.5px;
+      line-height: 1.55;
+      color: rgba(244,247,245,.82);
+    }
+
+    .main {
+      padding: 14mm 11mm 12mm 10mm;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 8mm;
+      padding-bottom: 5mm;
+      border-bottom: 1.5px solid var(--ink);
+      margin-bottom: 5.5mm;
+    }
+
+    .topline h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .topline .years {
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+      padding-bottom: 1mm;
+    }
+
+    .summary {
+      font-size: 10.5px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin-bottom: 6mm;
+    }
+
+    .summary b { color: var(--ink); font-weight: 600; }
+
+    .section { margin-bottom: 5.5mm; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+      margin-bottom: 3.2mm;
+    }
+
+    .section-title h3 {
+      font-size: 9.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .job {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1mm 4mm;
+      margin-bottom: 3.8mm;
+    }
+
+    .job:last-child { margin-bottom: 0; }
+
+    .job h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .job .company {
+      font-size: 10px;
+      color: var(--panel);
+      font-weight: 600;
+      margin-top: .5mm;
+    }
+
+    .job .dates {
+      font-size: 9px;
+      color: var(--muted);
+      font-weight: 500;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .job ul {
+      grid-column: 1 / -1;
+      margin-top: 1.2mm;
+      padding-left: 3.5mm;
+    }
+
+    .job li {
+      font-size: 9.5px;
+      line-height: 1.4;
+      color: var(--muted);
+      margin-bottom: .8mm;
+    }
+
+    .job li::marker { color: var(--accent); }
+
+    .projects {
+      display: grid;
+      gap: 2mm;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 22mm 1fr;
+      gap: 2.5mm;
+      align-items: start;
+    }
+
+    .project .tag {
+      font-size: 8px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--panel);
+      background: var(--chip);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1.2mm 1.6mm;
+      text-align: center;
+      margin-top: .4mm;
+    }
+
+    .project h4 {
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .project p {
+      font-size: 9.5px;
+      line-height: 1.4;
+      color: var(--muted);
+      margin-top: .6mm;
+    }
+
+    .foot {
+      margin-top: 4mm;
+      padding-top: 3mm;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 4mm;
+      font-size: 8.5px;
+      color: var(--muted);
+    }
+
+    .foot a {
+      color: var(--panel);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="aside">
+      <div class="brand">
+        <div class="role">Mobile Application Developer</div>
+        <h1>Shashank<span>Khochikar</span></h1>
+        <p>Helping businesses turn product ideas into reliable solutions — from problem to design, build, integration, and release.</p>
+      </div>
+
+      <div class="block">
+        <h2>Contact</h2>
+        <ul class="contact">
+          <li><strong>Email</strong>shashank.khochikar@gmail.com</li>
+          <li><strong>Location</strong>Kolhapur, India</li>
+          <li><strong>GitHub</strong>github.com/shashankkhochikar</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h2>Core Stack</h2>
+        <div class="skills">
+          <span>Flutter</span>
+          <span>Dart</span>
+          <span>Android</span>
+          <span>Kotlin</span>
+          <span>Java</span>
+          <span>Riverpod</span>
+          <span>GoRouter</span>
+          <span>Dio</span>
+          <span>Firebase</span>
+          <span>REST APIs</span>
+          <span>Git</span>
+          <span>Flavors</span>
+          <span>SDUI</span>
+          <span>CI/CD</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2>Also Work With</h2>
+        <div class="skills">
+          <span>iOS</span>
+          <span>React</span>
+          <span>Laravel</span>
+          <span>SQLite</span>
+          <span>MySQL</span>
+          <span>FCM</span>
+          <span>AI tools</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2>Education</h2>
+        <div class="edu-item">
+          <h3>MCA</h3>
+          <p>K.I.T’s IMER, Shivaji University · 2017 · 74.9%</p>
+        </div>
+        <div class="edu-item">
+          <h3>BCA</h3>
+          <p>The New College, Shivaji University · 2014 · 64%</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2>Domains Shipped</h2>
+        <p class="meta-list">
+          Healthcare · Collaboration<br />
+          On-demand services · HRMS<br />
+          Hospitality · Real estate<br />
+          Education · IoT
+        </p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topline">
+        <h2>Product Engineer &amp;<br />Mobile Application Developer</h2>
+        <div class="years">2015–Present</div>
+      </div>
+
+      <p class="summary">
+        I help businesses turn product ideas into <b>reliable, maintainable solutions</b> —
+        from understanding the problem to designing, building, integrating, testing, and releasing.
+        Core work is <b>Flutter and Android</b> (Riverpod, GoRouter, Dio, Firebase, REST, flavors),
+        with web (React) and API/Laravel support when the product needs it.
+        I use <b>AI tools</b> in daily work and keep learning alongside delivery.
+        Also available for <b>mentoring</b> and <b>consultation</b> on architecture, delivery, and product scope.
+      </p>
+
+      <section class="section">
+        <div class="section-title"><h3>Experience</h3></div>
+
+        <article class="job">
+          <div>
+            <h4>Product Engineer &amp; Mobile Application Developer</h4>
+            <div class="company">OnPoint Software Services Pvt. Ltd.</div>
+          </div>
+          <div class="dates">Oct 2020 – Present</div>
+          <ul>
+            <li>Lead Flutter architecture and API-driven delivery for production mobile products.</li>
+            <li>Mentor developers, run code reviews, and scope client estimates with clear milestones.</li>
+            <li>Ship cross-platform apps with Firebase, REST integrations, flavors, and release readiness.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div>
+            <h4>Mobile Application Developer</h4>
+            <div class="company">Vishwanet Computers Pvt. Ltd.</div>
+          </div>
+          <div class="dates">Dec 2019 – Sep 2020</div>
+          <ul>
+            <li>Built and shipped cross-platform mobile apps with REST API integration.</li>
+            <li>Collaborated with design and backend teams to meet client delivery expectations.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div>
+            <h4>Mobile Developer (Android / iOS)</h4>
+            <div class="company">VizippIndia (Edbrix)</div>
+          </div>
+          <div class="dates">Sep 2017 – Sep 2019</div>
+          <ul>
+            <li>Engineered education and enterprise apps, including video communication modules.</li>
+            <li>Improved performance and stability through testing and optimization.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div>
+            <h4>Android Developer</h4>
+            <div class="company">ClickIt Pvt. Ltd. · Vishwanet Computers</div>
+          </div>
+          <div class="dates">Nov 2015 – Aug 2017</div>
+          <ul>
+            <li>Native Android development for client business apps using Java / Android SDK.</li>
+            <li>Owned shipping, maintenance, and iterative feature delivery.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-title"><h3>Selected Projects</h3></div>
+        <div class="projects">
+          <article class="project">
+            <div class="tag">Flutter</div>
+            <div>
+              <h4>Healthy BMI Forever</h4>
+              <p>Health &amp; fitness app: BMI, diet plans, exercise/mindset videos, activity history.</p>
+            </div>
+          </article>
+          <article class="project">
+            <div class="tag">Android</div>
+            <div>
+              <h4>Open Houses Direct</h4>
+              <p>Real-estate open-house app — native Android, backend integration, performance.</p>
+            </div>
+          </article>
+          <article class="project">
+            <div class="tag">Android</div>
+            <div>
+              <h4>ILAJ</h4>
+              <p>On-demand home services and maintenance.</p>
+            </div>
+          </article>
+          <article class="project">
+            <div class="tag">Android</div>
+            <div>
+              <h4>Saintfarm</h4>
+              <p>Organic grocery e-commerce.</p>
+            </div>
+          </article>
+          <article class="project">
+            <div class="tag">Flutter</div>
+            <div>
+              <h4>Voffis</h4>
+              <p>Real-time communication and video conferencing.</p>
+            </div>
+          </article>
+          <article class="project">
+            <div class="tag">Android</div>
+            <div>
+              <h4>Essenza — Automobili Pininfarina</h4>
+              <p>Luxury automotive Android app — backend integration and performance.</p>
+            </div>
+          </article>
+          <article class="project">
+            <div class="tag">Flutter</div>
+            <div>
+              <h4>EZDigital</h4>
+              <p>Healthcare records and digital workflows.</p>
+            </div>
+          </article>
+          <article class="project">
+            <div class="tag">Flutter</div>
+            <div>
+              <h4>ProBizCa</h4>
+              <p>Digital business cards, leads, marketing, invoicing, and analytics.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title"><h3>Leadership</h3></div>
+        <article class="job">
+          <ul>
+            <li>Mentoring and consultation on Flutter/Android architecture, reviews, estimates, and delivery.</li>
+            <li>Conducted Android workshops for students and professionals at KIT IMER and VAMNICOM.</li>
+          </ul>
+        </article>
+      </section>
+
+      <div class="foot">
+        <span>Kolhapur, India</span>
+        <span><a>github.com/shashankkhochikar</a></span>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
