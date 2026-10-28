@@ -10,10 +10,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    @page {
-      size: letter;
-      margin: 0;
-    }
+    @page { size: letter; margin: 0; }
 
     html, body {
       background: #e8eaee;
@@ -27,34 +24,23 @@
       min-height: 100vh;
       padding: 24px 16px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+      justify-content: center;
     }
 
     .sheet {
       width: 8.5in;
       height: 11in;
       display: grid;
-      grid-template-columns: 1fr 2.3in;
+      grid-template-columns: 1fr 2.12in;
       background: #fff;
       box-shadow: 0 14px 40px rgba(0, 0, 0, .14);
       overflow: hidden;
-      page-break-after: always;
-      break-after: page;
     }
 
-    .sheet:last-child {
-      page-break-after: auto;
-      break-after: auto;
-    }
-
-    .main {
-      padding: 32px 26px 24px 34px;
-    }
+    .main { padding: 22px 20px 16px 26px; }
 
     h1 {
-      font-size: 32px;
+      font-size: 26px;
       font-weight: 700;
       color: #16527a;
       line-height: 1.05;
@@ -62,123 +48,102 @@
     }
 
     .headline {
-      margin-top: 4px;
-      font-size: 14px;
+      margin-top: 2px;
+      font-size: 12.5px;
       color: #555;
     }
 
-    .page-kicker {
-      font-size: 12px;
-      color: #555;
-      margin-bottom: 4px;
+    .profile {
+      margin-top: 8px;
+      font-size: 11px;
+      line-height: 1.38;
+      color: #333;
     }
 
     h2 {
-      margin: 18px 0 10px;
-      font-size: 12.5px;
+      margin: 10px 0 6px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
       color: #16527a;
-      padding-bottom: 6px;
+      padding-bottom: 3px;
       border-bottom: 1px solid #d7dee4;
     }
 
-    .main > h2:first-of-type { margin-top: 18px; }
-
-    .job, .item {
-      margin-bottom: 11px;
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
+    .job { margin-bottom: 7px; }
 
     .company {
-      font-size: 14.5px;
+      font-size: 12.5px;
       font-weight: 700;
-      color: #1a1a1a;
-    }
-
-    .company-note {
-      font-size: 12px;
-      font-style: italic;
-      color: #666;
-      margin: 1px 0 3px;
     }
 
     .job-line {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       align-items: baseline;
-      margin-bottom: 4px;
     }
 
     .job-line h3 {
-      font-size: 13px;
+      font-size: 11.5px;
       font-weight: 700;
     }
 
     .dates {
-      font-size: 12px;
+      font-size: 10.5px;
       font-weight: 700;
       white-space: nowrap;
-      color: #222;
     }
 
     .job ul {
-      padding-left: 18px;
-      font-size: 12px;
-      line-height: 1.4;
+      padding-left: 15px;
+      font-size: 10.5px;
+      line-height: 1.35;
       color: #333;
     }
 
+    .item { margin-bottom: 5px; }
+
     .item h3 {
-      font-size: 13px;
+      font-size: 11.5px;
       font-weight: 700;
     }
 
     .item p {
-      font-size: 11.5px;
-      line-height: 1.38;
-      color: #333;
-      margin-top: 2px;
-    }
-
-    .tags {
       font-size: 10.5px;
-      color: #16527a;
-      margin-top: 2px;
+      line-height: 1.32;
+      color: #333;
     }
 
     .links, .links a {
-      font-size: 11px;
+      font-size: 10px;
       color: #16527a;
       text-decoration: none;
     }
 
     .aside {
       background: #eaf3f8;
-      padding: 36px 20px 24px;
-      color: #2a2a2a;
+      padding: 22px 14px 14px;
     }
 
     .aside h2 {
-      font-size: 12px;
-      margin: 0 0 8px;
+      font-size: 11px;
+      margin: 0 0 5px;
       border-bottom-color: #c5d6e2;
     }
 
-    .aside section + section { margin-top: 18px; }
+    .aside section + section { margin-top: 11px; }
 
     .aside ul {
       list-style: none;
-      font-size: 12px;
-      line-height: 1.48;
+      font-size: 10.5px;
+      line-height: 1.38;
       color: #3a3a3a;
     }
 
     .aside li {
-      padding-left: 12px;
+      padding-left: 11px;
       position: relative;
     }
 
@@ -189,24 +154,29 @@
       color: #16527a;
     }
 
+    .skills p {
+      font-size: 10.5px;
+      line-height: 1.4;
+      color: #3a3a3a;
+    }
+
     .group-label {
       font-style: italic;
-      font-size: 12px;
-      margin: 8px 0 3px;
-      color: #333;
+      font-size: 10.5px;
+      margin: 6px 0 1px;
     }
 
     .edu-block h3 {
-      font-size: 13px;
+      font-size: 11.5px;
       font-weight: 700;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     .edu-block p {
-      font-size: 12px;
+      font-size: 10.5px;
       color: #444;
-      line-height: 1.4;
-      margin-top: 2px;
+      line-height: 1.32;
+      margin-top: 1px;
     }
 
     .aside a {
@@ -221,13 +191,8 @@
         padding: 0;
         margin: 0;
         width: 8.5in;
-        display: block;
       }
-      .sheet {
-        box-shadow: none;
-        width: 8.5in;
-        height: 11in;
-      }
+      .sheet { box-shadow: none; }
     }
   </style>
 </head>
@@ -236,128 +201,62 @@
     <main class="main">
       <h1>Shashank Khochikar</h1>
       <p class="headline">Mobile Application Developer · Product Engineer &amp; Mentor</p>
+      <p class="profile">
+        Flutter and Android product engineer: take client ideas from problem through design, build, API integration, test, and release. Mentor developers and consult on architecture and delivery; use AI tools in day-to-day work. Products in healthcare, hospitality, HRMS, insurance, and multi-flavor apps.
+      </p>
 
       <h2>Work Experience</h2>
 
       <article class="job">
         <div class="company">OnPoint Software Services</div>
-        <div class="company-note">Product engineering and mobile application delivery</div>
         <div class="job-line">
           <h3>Product Engineer &amp; Mobile Application Developer</h3>
           <div class="dates">Oct 2020 – Sep 2026</div>
         </div>
         <ul>
-          <li>Team Leader, leading mobile app development, API-driven delivery, mentor developers, run code reviews, and scope client estimates for mobile products.</li>
+          <li>Team Leader for mobile products: API-driven delivery, mentoring, code reviews, and client estimates.</li>
+          <li>Own Flutter and native Android delivery for production apps used on Play Store and App Store.</li>
         </ul>
       </article>
 
       <article class="job">
         <div class="company">Vishwanet Computers</div>
-        <div class="company-note">Cross-platform mobile delivery with design and backend collaboration</div>
         <div class="job-line">
           <h3>Mobile App Developer</h3>
           <div class="dates">Dec 2019 – Sep 2020</div>
         </div>
         <ul>
-          <li>Built and shipped cross-platform mobile apps with REST API integration and collaboration across design and backend.</li>
+          <li>Built and shipped cross-platform mobile apps with REST APIs, working with design and backend.</li>
         </ul>
       </article>
 
       <article class="job">
         <div class="company">VizippIndia (Edbrix)</div>
-        <div class="company-note">Education and enterprise mobile applications</div>
         <div class="job-line">
           <h3>Mobile Developer (Android / iOS)</h3>
           <div class="dates">Sep 2017 – Sep 2019</div>
         </div>
         <ul>
-          <li>Engineered education and enterprise mobile apps, including video communication modules and performance optimization.</li>
+          <li>Education and enterprise apps, including video communication modules and performance work.</li>
         </ul>
       </article>
 
       <article class="job">
         <div class="company">ClickIt &amp; Vishwanet</div>
-        <div class="company-note">Native Android development for client business apps</div>
         <div class="job-line">
           <h3>Android Developer</h3>
           <div class="dates">Nov 2015 – Aug 2017</div>
         </div>
         <ul>
-          <li>Native Android development for client business apps — foundation years in Java/Android SDK, shipping and maintenance.</li>
+          <li>Native Android (Java / Android SDK) for client business apps: shipping and maintenance.</li>
         </ul>
       </article>
-    </main>
 
-    <aside class="aside">
-      <section>
-        <h2>Contact</h2>
-        <ul>
-          <li><a href="mailto:shashank.khochikar@gmail.com">shashank.khochikar@gmail.com</a></li>
-          <li><a href="https://github.com/shashankkhochikar" target="_blank" rel="noopener noreferrer">github.com/shashankkhochikar</a></li>
-          <li>Kolhapur, India</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Skills</h2>
-        <div class="group-label">Hard skills:</div>
-        <ul>
-          <li>Flutter / Dart</li>
-          <li>Kotlin / Android</li>
-          <li>REST APIs</li>
-          <li>Firebase</li>
-          <li>Git</li>
-        </ul>
-        <div class="group-label">Techniques:</div>
-        <ul>
-          <li>Riverpod, GoRouter, Dio</li>
-          <li>Flavors / SDUI</li>
-          <li>API integration</li>
-          <li>Mentoring &amp; consultation</li>
-        </ul>
-        <div class="group-label">Tools and software:</div>
-        <ul>
-          <li>React / JavaScript</li>
-          <li>Laravel</li>
-          <li>WebRTC / MediaSoup</li>
-          <li>Google Maps</li>
-          <li>Terra API / Google Fit</li>
-          <li>AI tools</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Education</h2>
-        <div class="edu-block">
-          <h3>K.I.T’s IMER, Shivaji University</h3>
-          <p>Master of Computer Applications (MCA)<br />2017 · 74.9%</p>
-        </div>
-        <div class="edu-block" style="margin-top:12px">
-          <h3>The New College, Shivaji University</h3>
-          <p>Bachelor of Computer Applications (BCA)<br />2014 · 64%</p>
-        </div>
-      </section>
-
-      <section>
-        <h2>Other</h2>
-        <ul>
-          <li>Mentoring and consultation on architecture, reviews, estimates, and delivery</li>
-          <li>Android workshops at KIT IMER and VAMNICOM</li>
-          <li>Healthcare, hospitality, HRMS, insurance, and multi-flavor products</li>
-        </ul>
-      </section>
-    </aside>
-  </section>
-
-  <section class="sheet">
-    <main class="main">
-      <p class="page-kicker">Shashank Khochikar</p>
-      <h1>Work projects</h1>
+      <h2>Work projects</h2>
 
       <article class="item">
-        <h3>• Healthy BMI Forever - Health App</h3>
-        <p>Health and fitness app: BMI calculation, personalized diet plans and diet history, guided exercise and mindset videos, and activity history tracking.</p>
-        <div class="tags">Flutter · Dart · mobile · health-fitness · API integration</div>
+        <h3>Healthy BMI Forever — Health &amp; Fitness</h3>
+        <p>BMI calculation, personalized diet plans and history, guided exercise/mindset videos, activity tracking. Flutter, Dart, APIs.</p>
         <div class="links">
           <a href="https://play.google.com/store/apps/details?id=com.healthybmi.mobapp">Play Store</a>
           · <a href="https://healthybmiforever.com">healthybmiforever.com</a>
@@ -365,16 +264,14 @@
       </article>
 
       <article class="item">
-        <h3>• EZDigital - Healthcare App</h3>
-        <p>Flutter healthcare app for digital health records and workflows, including collecting health records from wearables (Terra API SDK, Google Fit).</p>
-        <div class="tags">Flutter · Dart · healthcare · wearable technology · Terra API SDK · Google Fit</div>
+        <h3>EZDigital — Healthcare records</h3>
+        <p>Flutter healthcare app for digital health records and wearable data (Terra API, Google Fit).</p>
         <div class="links"><a href="https://play.google.com/store/apps/details?id=com.ezdigital.app">Play Store</a></div>
       </article>
 
       <article class="item">
-        <h3>• Open Houses Direct - Real Estate App</h3>
-        <p>Android real-estate app for open-house property experiences: maps, geolocation, polygons, backend integration, and performance.</p>
-        <div class="tags">Kotlin · Google Maps · geo-location · polygon · REST API</div>
+        <h3>Open Houses Direct — Real estate</h3>
+        <p>Native Android open-house app: Google Maps, geolocation, polygons, third-party services, REST.</p>
         <div class="links">
           <a href="https://play.google.com/store/apps/details?id=com.preopenhouse">Play Store</a>
           · <a href="https://apps.apple.com/in/app/open-houses-direct/id1435149635">App Store</a>
@@ -383,9 +280,8 @@
       </article>
 
       <article class="item">
-        <h3>• ILAJ - Home Services &amp; Maintenance App</h3>
-        <p>On-demand home services and maintenance for a service-based business, with backend integration.</p>
-        <div class="tags">Kotlin · third-party services · REST API</div>
+        <h3>ILAJ — Home services</h3>
+        <p>On-demand home services and maintenance with backend and REST integration. Kotlin.</p>
         <div class="links">
           <a href="https://play.google.com/store/apps/details?id=com.ilaj.android">Play Store</a>
           · <a href="https://apps.apple.com/ae/app/ilaj/id1507669173">App Store</a>
@@ -394,9 +290,8 @@
       </article>
 
       <article class="item">
-        <h3>• Saintfarm - Organic Grocery E-Commerce App</h3>
-        <p>Organic grocery e-commerce: backend services, application functionality, performance, and reliable user experiences.</p>
-        <div class="tags">Kotlin · design &amp; usability research · REST API</div>
+        <h3>Saintfarm — Organic grocery</h3>
+        <p>E-commerce for organic grocery: backend services, REST, performance, and maintenance. Kotlin.</p>
         <div class="links">
           <a href="https://apps.apple.com/us/app/saintfarm-organic-superstore/id1527062510">App Store</a>
           · <a href="https://www.saintfarms.com/">saintfarms.com</a>
@@ -404,9 +299,8 @@
       </article>
 
       <article class="item">
-        <h3>• Voffis - Video Conferencing &amp; Project Management App</h3>
-        <p>Flutter app for real-time communication and video conferencing (WebRTC, MediaSoup), Android and iOS.</p>
-        <div class="tags">WebRTC · MediaSoup · Flutter · Dart · video stream</div>
+        <h3>Voffis — Video conferencing</h3>
+        <p>Flutter real-time video conferencing and project management (WebRTC, MediaSoup). Android and iOS.</p>
         <div class="links">
           <a href="https://apps.apple.com/in/app/voffis/id6503163636">App Store</a>
           · <a href="https://voffis.com/#/home">voffis.com/#/home</a>
@@ -414,16 +308,14 @@
       </article>
 
       <article class="item">
-        <h3>• Essenza by Automobili Pininfarina - Automotive Mobile App</h3>
-        <p>Android app associated with Automobili Pininfarina: automotive mobile experience, backend integration, performance optimization and maintenance.</p>
-        <div class="tags">Android · Kotlin · REST API · design · features</div>
+        <h3>Essenza by Automobili Pininfarina — Automotive</h3>
+        <p>Native Android for a luxury automotive brand: features, REST APIs, performance, and maintenance. Kotlin.</p>
         <div class="links"><a href="https://www.automobili-pininfarina.com/battista">automobili-pininfarina.com/battista</a></div>
       </article>
 
       <article class="item">
-        <h3>• ProBizCa - Digital Business Card &amp; Marketing App</h3>
-        <p>Digital business cards, leads, contacts, marketing, invoicing, and business analytics.</p>
-        <div class="tags">Flutter · Dart · API integration · business applications</div>
+        <h3>ProBizCa — Digital cards &amp; marketing</h3>
+        <p>Custom digital business cards, leads, contacts, marketing, invoicing, and analytics. Flutter, Dart, APIs.</p>
         <div class="links">
           <a href="https://play.google.com/store/apps/details?id=com.probizca.app&amp;hl=en_IN">Play Store</a>
           · <a href="https://apps.apple.com/in/app/probizca/id6737504498">App Store</a>
@@ -441,12 +333,34 @@
           <li>Kolhapur, India</li>
         </ul>
       </section>
+
+      <section class="skills">
+        <h2>Skills</h2>
+        <div class="group-label">Hard skills:</div>
+        <p>Flutter / Dart, Kotlin / Android, REST APIs, Firebase, Git</p>
+        <div class="group-label">Techniques:</div>
+        <p>Riverpod, GoRouter, Dio · Flavors / SDUI · API integration · Mentoring &amp; consultation</p>
+        <div class="group-label">Tools and software:</div>
+        <p>React / JavaScript · Laravel · WebRTC / MediaSoup · Google Maps · Terra API / Google Fit · AI tools</p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu-block">
+          <h3>K.I.T’s IMER, Shivaji University</h3>
+          <p>MCA, 2017 · 74.9% — software engineering while working as a mobile developer.</p>
+        </div>
+        <div class="edu-block" style="margin-top:8px">
+          <h3>The New College, Shivaji University</h3>
+          <p>BCA, 2014 · 64% — programming fundamentals and computer applications.</p>
+        </div>
+      </section>
+
       <section>
         <h2>Other</h2>
         <ul>
-          <li>Mentoring and consultation on architecture, reviews, estimates, and delivery</li>
+          <li>Mentoring and consultation: architecture, reviews, estimates, delivery</li>
           <li>Android workshops at KIT IMER and VAMNICOM</li>
-          <li>Healthcare, hospitality, HRMS, insurance, and multi-flavor products</li>
         </ul>
       </section>
     </aside>
