@@ -736,20 +736,66 @@ img {
 .projects__container {
   grid-template-columns: 1fr;
   gap: 2rem;
-  perspective: 1000px;
 }
 
 .projects__card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background-color: hsl(255, 35%, 12%);
   padding: 1.25rem;
   border-radius: 1.25rem;
+  border: 1px solid hsla(var(--hue), 30%, 50%, .18);
   display: grid;
   row-gap: 1.25rem;
   align-content: start;
   text-align: left;
-  transform-style: preserve-3d;
-  transition: transform 450ms ease-out;
-  will-change: transform;
+  transition: border-color .35s ease, box-shadow .35s ease, background-color .35s ease;
+}
+
+.projects__card::before {
+  content: "";
+  position: absolute;
+  inset: -40% auto auto -30%;
+  width: 70%;
+  height: 70%;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, hsla(var(--hue), 70%, 64%, .28) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity .35s ease;
+  z-index: 0;
+}
+
+.projects__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 35%, hsla(0, 0%, 100%, .1) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform .7s ease;
+  z-index: 2;
+}
+
+.projects__card:hover {
+  border-color: hsla(var(--hue), 60%, 64%, .55);
+  background-color: hsl(255, 38%, 15%);
+  box-shadow: 0 0 0 1px hsla(var(--hue), 60%, 64%, .18),
+              0 16px 40px hsla(var(--hue), 70%, 20%, .35);
+}
+
+.projects__card:hover::before {
+  opacity: 1;
+}
+
+.projects__card:hover::after {
+  transform: translateX(120%);
+}
+
+.projects__card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .projects__media {
@@ -763,37 +809,6 @@ img {
   object-fit: cover;
   border-radius: 1rem;
   display: block;
-}
-
-.projects__actions {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: .75rem;
-  gap: .5rem;
-  pointer-events: none;
-}
-
-.projects__action {
-  pointer-events: auto;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 1.1rem;
-  background: linear-gradient(145deg, hsla(240, 8%, 18%, .92), hsla(240, 10%, 4%, .95));
-  box-shadow: 0 4px 12px hsla(240, 8%, 0%, .45);
-  transition: transform .25s ease, background .25s ease;
-}
-
-.projects__action:hover {
-  transform: scale(1.08);
-  background: linear-gradient(145deg, hsla(var(--hue), 50%, 28%, .95), hsla(240, 10%, 4%, .95));
 }
 
 .projects__data {
@@ -810,8 +825,32 @@ img {
 .projects__description {
   font-size: var(--small-font-size);
   color: var(--text-color);
-  margin-bottom: 1rem;
+  margin-bottom: .85rem;
   line-height: 1.55;
+}
+
+.projects__links {
+  list-style: disc;
+  margin: 0 0 1rem;
+  padding: .85rem 0 0 1.15rem;
+  display: grid;
+  row-gap: .35rem;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+}
+
+.projects__description + .projects__links {
+  border-top: 1px solid hsla(var(--hue), 30%, 50%, .28);
+}
+
+.projects__links a {
+  color: var(--first-color);
+  word-break: break-all;
+  transition: color .3s;
+}
+
+.projects__links a:hover {
+  color: var(--first-color-light);
 }
 
 .projects__tags {
@@ -1451,9 +1490,8 @@ img {
     transform: translateY(0);
   }
 
-  .projects__card {
-    transform: none !important;
-    transition: none;
+  .projects__card::after {
+    display: none;
   }
 
   .work__card:hover,

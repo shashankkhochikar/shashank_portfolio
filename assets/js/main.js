@@ -191,54 +191,8 @@ if (cursor && window.matchMedia("(min-width: 1151px) and (hover: hover)").matche
   });
 }
 
-/*=============== PROJECTS CARD TILT ===============*/
-const projectCards = document.querySelectorAll(".projects__card");
-const tiltQuery = window.matchMedia("(min-width: 768px) and (hover: hover)");
-const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-const TILT_MAX = 45;
-
-const resetTilt = (card) => {
-  card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
-};
-
-const onCardMove = (event) => {
-  const card = event.currentTarget;
-  const rect = card.getBoundingClientRect();
-  const x = event.clientX - rect.left;
-  const y = event.clientY - rect.top;
-  const rotateY = ((x / rect.width) - 0.5) * (TILT_MAX * 2);
-  const rotateX = ((y / rect.height) - 0.5) * -(TILT_MAX * 2);
-
-  card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
-};
-
-const onCardLeave = (event) => {
-  resetTilt(event.currentTarget);
-};
-
-const bindProjectTilt = () => {
-  const enable = tiltQuery.matches && !reduceMotionQuery.matches;
-
-  projectCards.forEach((card) => {
-    card.removeEventListener("mousemove", onCardMove);
-    card.removeEventListener("mouseleave", onCardLeave);
-    resetTilt(card);
-
-    if (enable) {
-      card.addEventListener("mousemove", onCardMove);
-      card.addEventListener("mouseleave", onCardLeave);
-    }
-  });
-};
-
-if (projectCards.length) {
-  bindProjectTilt();
-  tiltQuery.addEventListener("change", bindProjectTilt);
-  reduceMotionQuery.addEventListener("change", bindProjectTilt);
-}
-
 /*=============== SCROLL REVEAL ANIMATION ===============*/
-const prefersReducedMotion = reduceMotionQuery.matches;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (!prefersReducedMotion && typeof ScrollReveal !== "undefined") {
   const sr = ScrollReveal({
