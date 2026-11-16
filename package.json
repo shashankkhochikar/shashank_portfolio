@@ -1,0 +1,19 @@
+{
+  "name": "shashank-portfolio",
+  "version": "1.0.0",
+  "description": "Shashank Khochikar's portfolio website",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build step required'",
+    "lint": "echo 'No linting configured for static HTML site'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashankkhochikar/shashank_portfolio.git"
+  },
+  "author": "Shashank Khochikar",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}
