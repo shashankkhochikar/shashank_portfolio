@@ -1,0 +1,23 @@
+{
+  "name": "shashank-portfolio",
+  "version": "1.0.0",
+  "description": "Responsive Portfolio Website Using HTML CSS And JavaScript - Contains animations when scrolling, smooth scrolling in each section, beautiful dark theme, custom cursor & animated shapes, slide-out projects, tabbed sections, & a copy email button. Developed first with the Mobile First methodology, then for desktop. Compatible with all mobile devices and with a beautiful and pleasant user interface.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashankkhochikar/shashank_portfolio.git"
+  },
+  "keywords": ["portfolio", "html", "css", "javascript", "responsive"],
+  "author": "Shashank Khochikar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shashankkhochikar/shashank_portfolio/issues"
+  },
+  "homepage": "https://github.com/shashankkhochikar/shashank_portfolio#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
